@@ -1,0 +1,101 @@
+:root {
+  --background-color: #2d2d2d;
+  --function-color: #fd753b;
+  --operator-color: #3b71fd;
+  --number-color: #63ff7c;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "Inter";
+  box-sizing: border-box;
+}
+
+/* body */
+
+html {
+  background: #2d3860;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  background: var(--background-color);
+  border-radius: 10px;
+  grid-template-rows: minmax(75px, auto) repeat(5, 52px);
+  grid-template-columns: repeat(4, 75px);
+  padding: 17px;
+  gap: 11px;
+}
+
+.container > div,
+.container > button {
+  border-radius: 5px;
+}
+
+.display {
+  background: #d9d9d9;
+  user-select: none;
+}
+
+.container > button {
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+}
+
+.display {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.number {
+  background: var(--number-color);
+}
+
+.number:hover {
+  background-color: #44c158;
+}
+
+.operator {
+  background: var(--operator-color);
+}
+
+.operator:hover {
+  background: #325AC0;
+}
+
+.function {
+  background: var(--function-color);
+}
+
+.function:hover {
+  background: #C75D30;
+}
+
+#zero {
+  grid-column: span 2;
+}
