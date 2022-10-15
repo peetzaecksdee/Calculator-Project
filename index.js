@@ -18,29 +18,58 @@ function operate(operator, numOne, numTwo) {
       result = divide(numOne, numTwo);
       break;
   }
-  num1 = result;
-  num2 = 0;
 }
 
-let operator, num1, num2, result;
-const numbers = document.querySelectorAll(".number");
-const operators = document.querySelectorAll(".operator");
-const functions = document.querySelectorAll(".function");
+let operator,
+  result,
+  number = "0";
+const buttons = document.querySelectorAll("button");
+const textDisplay = document.querySelector(".display");
 
-numbers.forEach((numberBtn) => {
-  numberBtn.addEventListener("click", (e) => clickHandler(e.target.value));
-});
-
-operators.forEach((operatorBtn) => {
-  operatorBtn.addEventListener("click", (e) => clickHandler(e.target.value));
-});
-
-functions.forEach((functionBtn) => {
-  functionBtn.addEventListener("click", (e) => clickHandler(e.target.value));
+buttons.forEach((Btn) => {
+  Btn.addEventListener("click", (e) => clickHandler(e.target.value));
 });
 
 function clickHandler(e, type) {
-  if (type === "number") {
-    
+  if (isNaN(e)) {
+    handleSymbol(e);
+  } else {
+    handleNumber(e);
+  }
+  textDisplay.textContent = number;
+}
+
+function clear() {
+  textDisplay.textContent = "0";
+  number = "0";
+  result = 0;
+  operator = undefined;
+}
+
+function handleCalculation(symbol) {
+  if (number === 0) return;
+
+  const anotherNumber = number;
+  return;
+}
+
+function handleSymbol(symbol) {
+  switch (symbol) {
+    case "clear":
+      clear();
+      break;
+    case "abs":
+      number = number.startsWith("-") ? number.replace("-", "") : `-${number}`;
+      break;
+    case "percent":
+      number = 
+  }
+}
+
+function handleNumber(stringNumber) {
+  if (number === "0") {
+    number = stringNumber;
+  } else {
+    number += stringNumber;
   }
 }
